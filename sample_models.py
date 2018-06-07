@@ -146,7 +146,7 @@ def final_model():
     """ Build a deep recurrent network for speech 
     """
     
-    input_dim=161 # change to 13 if you would like to use MFCC features
+    input_dim=13 # change to 13 if you would like to use MFCC features
     units=200
     recur_layers=5
     output_dim=29
