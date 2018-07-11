@@ -15339,7 +15339,8 @@ Epoch 20/20
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Question 2:</strong> Describe your final model architecture and your reasoning at each step.</p>
-<p><strong>Answer:</strong> I used some of the ideas given in the notebook, made the RNN part deeper (5 layers), switched from SimpleRNN to LSTM and finally added dropout to prevent overfitting.</p>
+<p><strong>Answer:</strong> I used some of the ideas given in the notebook and experimented with multiple architectures. Finally it seemed that a deep bidirectional RNN works best, so I verified with 2 layers and finally arrived at 5 layers. On the way I had to switch from  SimpleRNN to LSTM, otherwise the loss would always appear as <code>NaN</code>, and finally added dropout to prevent overfitting.</p>
+<p>I arrived at the final architecture through trial and error. I experimented with multiple architectures and depths, it turned out that deep dense models with single bidirectional RNN didn't work that well, despite their great success for Baidu or Mozilla. I saw that model_3 and model_4 were learning nicely so I added additional layers and experimented with longer training after adding dropout and batch_norm and thus achieved results of training_loss = 35.6743 in model_7 but with high validation loss (136) and lower validation loss in model_8 which went down to 108.0147 after 40 epochs. The final model has the same architecture as model_8 but was trained only for 20 epochs and so the validation loss reached 116.1760.</p>
 
 </div>
 </div>
